@@ -1,0 +1,18 @@
+#specify version of docker 
+version: "3"
+
+#services is a type of container 
+services: 
+    #conatiner
+    redis-server:
+        #use this image to create the cintainer
+        image: "redis"
+    node-app:
+        #restart policies
+        restart: on-failure
+        #look in the current directory for a docker file
+        build: .
+        ports:
+            # - is a yml file how we species an array so we can technally map many different ports inside a 
+            #single docker compose file for a single service or a single conatainer
+            - "4009:8081"
